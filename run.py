@@ -15,6 +15,7 @@ SHEET = GSPREAD_CLIENT.open("Learnpulse-Training-Register")
 training = SHEET.worksheet('register')
 # def input_data_to_register():
 
+
 def welcome_function():
     """
     This function is the welcome function, it is called
@@ -29,15 +30,25 @@ def welcome_function():
     print("Please enter one of the following options to progress:")
     print('- Enter "input" to add trainee data to the database')
     print('- Enter "search" to search for trainee data')
+    while True:
+        user_branch_choice = input("Please input your command: ")
+        if user_branch_choice == "input":
+            return user_branch_choice
+        elif user_branch_choice == "search":
+            return user_branch_choice
+        else:
+            return "Sorry, that command was invalid please try again"
 
-def program_branch():
+# def program_branch():
+
 
 def main_program_call():
     """
     This function is the main function in the program through which
     all other functions are called.
     """
-    welcome_function()
+    branching_variable = welcome_function()
+    print(branching_variable)
 
 
 main_program_call()
