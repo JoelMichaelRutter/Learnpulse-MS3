@@ -27,18 +27,20 @@ def welcome_function():
           "staff training information")
     print("\n")
     print("What would you like to do?")
-    print("Please enter one of the following options to progress:")
-    print('- Enter "input" to add trainee data to the database')
-    print('- Enter "search" to search for trainee data')
     while True:
+        print("\n")
+        print("Please enter one of the following options to progress:")
+        print('- Enter "input" to add trainee data to the database')
+        print('- Enter "search" to search for trainee data')
         user_branch_choice = input("Please input your command: ")
         if user_branch_choice == "input":
             return user_branch_choice
         elif user_branch_choice == "search":
             return user_branch_choice
         else:
-            return "Sorry, that command was invalid please try again"
-
+            print("\nYou entered an invalid command.\n"
+                  "Please try again...")
+            continue
 # def program_branch():
 
 
