@@ -13,7 +13,6 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("Learnpulse-Training-Register")
 
 training = SHEET.worksheet('register')
-# def input_data_to_register():
 
 
 def welcome_function():
@@ -41,7 +40,33 @@ def welcome_function():
             print("\nYou entered an invalid command.\n"
                   "Please try again...")
             continue
-# def program_branch():
+
+
+def input_function_check():
+    while True:
+        print("\n")
+        print("Based on your command, you want to input data -")
+        print("Is this right?")
+        print("Please enter one of the following commands to progress:")
+        print('- Enter "Y" for yes')
+        print('- Enter "N" for no\n')
+        branch_input_check = input("Please enter your command: ")
+        if branch_input_check == "Y":
+            return branch_input_check
+        if branch_input_check == "N":
+            print("Taking you back, hold on...")
+            return welcome_function()
+        else:
+            print("\nThat command was invalid, please try again...")
+            continue
+
+
+def search_function_check():
+    print("Search function calling...")
+
+
+def input_data_to_register():
+    print("FIRST INPUT")
 
 
 def main_program_call():
@@ -50,7 +75,12 @@ def main_program_call():
     all other functions are called.
     """
     branching_variable = welcome_function()
-    print(branching_variable)
+    if branching_variable == "input":
+        input_check_proceed = input_function_check()
+        if input_check_proceed == "Y":
+            input_data_to_register()
+    else:
+        search_function_check()
 
 
 main_program_call()
