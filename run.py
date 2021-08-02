@@ -26,6 +26,7 @@ def welcome_function():
           "staff training information")
     print("\n")
     print("What would you like to do?")
+
     while True:
         print("\n")
         print("Please enter one of the following options to progress:")
@@ -43,6 +44,17 @@ def welcome_function():
 
 
 def input_function_check():
+    """
+    This function asks the user whether they want to
+    input data incase they inputted the incorrect command.
+    The users input is limited to a Y/N for yes or no,
+    if the user inputs something other than the above, the
+    input loops and prints a command invalid message.
+    If the user enters N, the main_program_call function is called again.
+    If the user enters Y, the return is passed back to the main function
+    and assessed so that the next function in the input branch of the program
+    can be called.
+    """
     while True:
         print("\n")
         print("Based on your command, you want to input data -")
@@ -51,11 +63,14 @@ def input_function_check():
         print('- Enter "Y" for yes')
         print('- Enter "N" for no\n')
         branch_input_check = input("Please enter your command: ")
+        print("")
         if branch_input_check == "Y":
             return branch_input_check
         if branch_input_check == "N":
-            print("Taking you back, hold on...")
-            return welcome_function()
+            print("\n")
+            print("Taking you back to start of the application, hold on...")
+            print("\n")
+            return main_program_call()
         else:
             print("\nThat command was invalid, please try again...")
             continue
@@ -65,8 +80,43 @@ def search_function_check():
     print("Search function calling...")
 
 
-def input_data_to_register():
-    print("FIRST INPUT")
+def collect_trainee_data():
+    """
+    This function collects and validates trainee data by asking for
+    user input whilst at the same time loops the inputs and provides
+    guidance if the user inputs invalid data.
+    """
+    print("Learnpulse data input function running...")
+    trainee_data_row = []
+
+    while True:
+        full_name = input("Enter the trainee's full name (alpha chars only): ")
+        n = full_name
+        if (n >= "a" and n <= "z") or (n >= "A" and n <= "Z"):
+            trainee_data_row.append(n)
+            print("Input successfull, thank you...")
+            print("\n")
+            break
+        else:
+            print("Sorry, that data was invalid, please try again...")
+            continue
+    
+    trainee_emp_number = input("Enter the trainee's 5 digit employee number: ")
+    trainee_data_row.append(trainee_emp_number)
+    print("To select the trainee's business area, issue one of the commands:")
+    print('- Enter "1" to assign the trainee to Team 1')
+    print('- Enter "2" to assign the trainee to Team 2')
+    trainee_team = int(input("Please issue a team assignment command: "))
+    if trainee_team == 1:
+        trainee_team = "Team 1"
+    elif trainee_team == 2:
+        trainee_team = "Team 2"
+    trainee_data_row.append(trainee_team)
+    print(trainee_data_row)
+
+
+def validate_user_input():
+    print("This is the validation function")
 
 
 def main_program_call():
@@ -78,7 +128,7 @@ def main_program_call():
     if branching_variable == "input":
         input_check_proceed = input_function_check()
         if input_check_proceed == "Y":
-            input_data_to_register()
+            collect_trainee_data()
     else:
         search_function_check()
 
