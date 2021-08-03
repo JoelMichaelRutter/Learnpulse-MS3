@@ -30,9 +30,9 @@ def welcome_function():
     while True:
         print("\n")
         print("Please enter one of the following options to progress:")
-        print('- Enter "input" to add trainee data to the database')
+        print('\n- Enter "input" to add trainee data to the database')
         print('- Enter "search" to search for trainee data')
-        user_branch_choice = input("Please input your command: ")
+        user_branch_choice = input("\nPlease input your command: ")
         if user_branch_choice == "input":
             return user_branch_choice
         elif user_branch_choice == "search":
@@ -59,17 +59,15 @@ def input_function_check():
         print("\n")
         print("Based on your command, you want to input data -")
         print("Is this right?")
-        print("Please enter one of the following commands to progress:")
-        print('- Enter "Y" for yes')
+        print("\nPlease enter one of the following commands to progress:")
+        print('\n- Enter "Y" for yes')
         print('- Enter "N" for no\n')
         branch_input_check = input("Please enter your command: ")
         print("")
         if branch_input_check == "Y":
             return branch_input_check
         if branch_input_check == "N":
-            print("\n")
-            print("Taking you back to start of the application, hold on...")
-            print("\n")
+            print("\nBacking up to the start of the application.\n")
             return main_program_call()
         else:
             print("\nThat command was invalid, please try again...")
@@ -86,27 +84,45 @@ def collect_trainee_data():
     user input whilst at the same time loops the inputs and provides
     guidance if the user inputs invalid data.
     """
-    print("Learnpulse data input function running...")
+    print("LEARNPULSE DATA INPUT FUNCTION RUNNING....")
     trainee_data_row = []
-
+    """ - FULL NAME
+    - This input asks the user for their full name.
+    - The block is contained in a while loop to loop if invalid data
+    - If valid alpha data only is provided, the loop breaks and the input
+    from user is appended to the trainee_data_row list.
+    """
     while True:
         full_name = input("Enter the trainee's full name (alpha chars only): ")
         n = full_name
         if (n >= "a" and n <= "z") or (n >= "A" and n <= "Z"):
             trainee_data_row.append(n)
             print("Input successfull, thank you...")
-            print("\n")
             break
         else:
             print("Sorry, that data was invalid, please try again...")
             continue
-    
-    trainee_emp_number = input("Enter the trainee's 5 digit employee number: ")
-    trainee_data_row.append(trainee_emp_number)
-    print("To select the trainee's business area, issue one of the commands:")
-    print('- Enter "1" to assign the trainee to Team 1')
+
+    """ - EMPLOYEE NUMBER
+    - This input requests a five digit number from the user
+    - The block is looped if invalid data is provided.
+    - If valid data is provided, loop is broken and data is
+    appended to trainee_data_row list.
+    """
+    while True:
+        emp_number = input("\nEnter the trainee's 5 digit employee number: ")
+        if emp_number.isdigit() and len(emp_number) == 5:
+            print("Employee number accepted, thank you...")
+            trainee_data_row.append(emp_number)
+            break
+        else:
+            print(f"You entered {emp_number}, you must enter five digits""\n")
+            continue
+
+    print("\nTo select the trainee's team, issue a following command:")
+    print('\n- Enter "1" to assign the trainee to Team 1')
     print('- Enter "2" to assign the trainee to Team 2')
-    trainee_team = int(input("Please issue a team assignment command: "))
+    trainee_team = int(input("\nPlease issue a team assignment command: "))
     if trainee_team == 1:
         trainee_team = "Team 1"
     elif trainee_team == 2:
