@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import re
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -86,7 +87,7 @@ def collect_trainee_data():
     """
     print("LEARNPULSE DATA INPUT FUNCTION RUNNING....")
     trainee_data_row = []
-    """ - FULL NAME
+    """ - FULL NAME:
     - This input asks the user for their full name.
     - The block is contained in a while loop to loop if invalid data
     - If valid alpha data only is provided, the loop breaks and the input
@@ -103,7 +104,7 @@ def collect_trainee_data():
             print("Sorry, that data was invalid, please try again...")
             continue
 
-    """ - EMPLOYEE NUMBER
+    """ - EMPLOYEE NUMBER:
     - This input requests a five digit number from the user
     - The block is looped if invalid data is provided.
     - If valid data is provided, loop is broken and data is
@@ -119,16 +120,59 @@ def collect_trainee_data():
             print(f"You entered {emp_number}, you must enter five digits""\n")
             continue
 
-    print("\nTo select the trainee's team, issue a following command:")
-    print('\n- Enter "1" to assign the trainee to Team 1')
-    print('- Enter "2" to assign the trainee to Team 2')
-    trainee_team = int(input("\nPlease issue a team assignment command: "))
-    if trainee_team == 1:
-        trainee_team = "Team 1"
-    elif trainee_team == 2:
-        trainee_team = "Team 2"
-    trainee_data_row.append(trainee_team)
-    print(trainee_data_row)
+    """ - TEAM ASSIGNMENT:
+    - This code block asks for the user to input a command to
+    asign the trainee to a team.
+    - Based on the command inputted, the trainee_team variable is
+    assigned a value of 'Team One' or Team 2"
+    - If valid command is entered, variable value is appended to trainee_
+    data_row list and while loop is broken.
+    - Error and guidance printed to user if invalid command is entered.
+    """
+    while True:
+        print("\nTo select the trainee's team, issue a following command:")
+        print('\n- Enter "1" to assign the trainee to Team 1')
+        print('- Enter "2" to assign the trainee to Team 2')
+        trainee_team = int(input("\nPlease issue a team assignment command: "))
+        if trainee_team == 1:
+            trainee_team = "Team 1"
+            trainee_data_row.append(trainee_team)
+            print("\nTeam assignment successful, thank you.")
+            break
+        elif trainee_team == 2:
+            trainee_team = "Team 2"
+            trainee_data_row.append(trainee_team)
+            print("\nTeam assignment successful, thank you.")
+            break
+        else:
+            print(f"You entered {trainee_team}, which is an invalid command.")
+            print("Please try again....\n")
+
+    """ - INTRODUCTION MODULE
+    - This part of the function asks for the date the trainee sat their
+    intro module.
+    - If the data is formatted incorrectly, the loop provides guidance and asks
+    for further input.
+    - If data is formatted correctly, loop breaks and data is appended to the
+    trainee_data_row list
+    CODE ACKNOWLEDGEMENT FOR REG EX -
+    https://blog.softhints.com/python-regex-match-date/#regexmatchingdate10102015
+    """
+    while True:
+        print("Input the date that the trainee completed their introduction"
+              " module")
+        print("The date must be formatted DD/MM/YYYY\n")
+        int_mod_date = input("Please enter the date: ")
+        date = re.findall(r"[\d]{2}/[\d]{2}/[\d]{4}", int_mod_date)
+        if date:
+            print("\n")
+            print(f'{int_mod_date} is a valid input, thank you...')
+            trainee_data_row.append(int_mod_date)
+            break
+        else:
+            print('Your input was formatted incorrectly')
+            print(f"You entered {int_mod_date}, follow DD/MM/YYYY format.")
+            continue
 
 
 def validate_user_input():
