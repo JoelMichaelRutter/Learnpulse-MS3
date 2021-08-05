@@ -79,25 +79,25 @@ def search_function_check():
     print("Search function calling...")
 
 
-def collect_trainee_data():
+def collect_trainee_personell_data():
     """
     This function collects and validates trainee data by asking for
     user input whilst at the same time loops the inputs and provides
     guidance if the user inputs invalid data.
     """
     print("LEARNPULSE DATA INPUT FUNCTION RUNNING....")
-    trainee_data_row = []
+    trainee_personell_data_row = []
     """ - FULL NAME:
     - This input asks the user for their full name.
     - The block is contained in a while loop to loop if invalid data
     - If valid alpha data only is provided, the loop breaks and the input
-    from user is appended to the trainee_data_row list.
+    from user is appended to the trainee_personell_data_row list.
     """
     while True:
         full_name = input("Enter the trainee's full name (alpha chars only): ")
         n = full_name
         if (n >= "a" and n <= "z") or (n >= "A" and n <= "Z"):
-            trainee_data_row.append(n)
+            trainee_personell_data_row.append(n)
             print("Input successfull, thank you...")
             break
         else:
@@ -114,7 +114,7 @@ def collect_trainee_data():
         emp_number = input("\nEnter the trainee's 5 digit employee number: ")
         if emp_number.isdigit() and len(emp_number) == 5:
             print("Employee number accepted, thank you...")
-            trainee_data_row.append(emp_number)
+            trainee_personell_data_row.append(emp_number)
             break
         else:
             print(f"You entered {emp_number}, you must enter five digits""\n")
@@ -136,47 +136,73 @@ def collect_trainee_data():
         trainee_team = int(input("\nPlease issue a team assignment command: "))
         if trainee_team == 1:
             trainee_team = "Team 1"
-            trainee_data_row.append(trainee_team)
+            trainee_personell_data_row.append(trainee_team)
             print("\nTeam assignment successful, thank you.")
             break
         elif trainee_team == 2:
             trainee_team = "Team 2"
-            trainee_data_row.append(trainee_team)
+            trainee_personell_data_row.append(trainee_team)
             print("\nTeam assignment successful, thank you.")
             break
         else:
             print(f"You entered {trainee_team}, which is an invalid command.")
             print("Please try again....\n")
+    return trainee_personell_data_row
 
-    """ - INTRODUCTION MODULE
-    - This part of the function asks for the date the trainee sat their
-    intro module.
-    - If the data is formatted incorrectly, the loop provides guidance and asks
-    for further input.
-    - If data is formatted correctly, loop breaks and data is appended to the
-    trainee_data_row list
+
+def collect_trainee_training_dates(module):
+    """
+    This function is a refactored version of the large
+    function I created to obtain trainee data. It
+    collects the date that the trainee sat the module
+    passed in via the module parameter each time the function is
+    called. It asks the user for input and verifies that the
+    input is formatted in DD/MM/YYYY format using Regular Expressions.
+    - If correct data inputted, function returns the value to main.
+    - If incorrect data inputted, loop continues until the data is correct.
     CODE ACKNOWLEDGEMENT FOR REG EX -
     https://blog.softhints.com/python-regex-match-date/#regexmatchingdate10102015
     """
+    print('This is where refactored code will go')
     while True:
-        print("Input the date that the trainee completed their introduction"
-              " module")
+        print("Enter the date that the trainee sat their"
+              f" {module} Module")
         print("The date must be formatted DD/MM/YYYY\n")
-        int_mod_date = input("Please enter the date: ")
-        date = re.findall(r"[\d]{2}/[\d]{2}/[\d]{4}", int_mod_date)
+        mod_date = input("Please enter the date: ")
+        date = re.findall(r"[\d]{2}/[\d]{2}/[\d]{4}", mod_date)
         if date:
-            print("\n")
-            print(f'{int_mod_date} is a valid input, thank you...')
-            trainee_data_row.append(int_mod_date)
-            break
+            print("\n"f'{mod_date} is a valid input, thank you...')
+            return mod_date
         else:
             print('Your input was formatted incorrectly')
-            print(f"You entered {int_mod_date}, follow DD/MM/YYYY format.")
+            print(f"You entered {mod_date}, follow DD/MM/YYYY format.")
             continue
 
 
-def validate_user_input():
-    print("This is the validation function")
+def collect_assessment_scores(ass_name, ass_score_total):
+    """
+    This function collects the users assessment scores.
+    The function takes two arguments:
+    - ass_name: This takes the assessment name that must be entered
+    when the function is called.
+    - ass_score_total - This takes the assessment total score and
+    is again entered as an argument when the function is called.
+    This allows for the scope for this function to be universal
+    """
+    while True:
+        print("\nPlease input the trainee's"
+              f" {ass_name} assessment score")
+        print(f"This assessment is out of {ass_score_total}")
+        ass_score = input(f"Enter the trainee's {ass_name} assessment score: ")
+        if ass_score.isdigit() and ass_score <= int(ass_score_total):
+            print("Input successful")
+            print(f"The trainee scored {ass_score}/{ass_score_total}")
+            return ass_score
+        else:
+            print(f"Sorry, you entered {ass_score}, that data was invalid.")
+            print("You must input a digit value that is greater than"
+                  f" or equal too {ass_score_total} ")
+            continue
 
 
 def main_program_call():
@@ -188,7 +214,18 @@ def main_program_call():
     if branching_variable == "input":
         input_check_proceed = input_function_check()
         if input_check_proceed == "Y":
-            collect_trainee_data()
+            trainee_data_row = collect_trainee_personell_data()
+            intro_mod_date = collect_trainee_training_dates("Introduction")
+            trainee_data_row.append(intro_mod_date)
+            hs_mod_date = collect_trainee_training_dates("Health & Safety")
+            trainee_data_row.append(hs_mod_date)
+            pam_mod_date = collect_trainee_training_dates("Policy Adherence")
+            trainee_data_row.append(pam_mod_date)
+            reg_mod_date = collect_trainee_training_dates("Regulatory")
+            trainee_data_row.append(reg_mod_date)
+            reg_ass_score = collect_assessment_scores("Regulatory", "33")
+            trainee_data_row.append(reg_ass_score)
+            print(trainee_data_row)
     else:
         search_function_check()
 
