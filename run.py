@@ -194,7 +194,8 @@ def collect_assessment_scores(ass_name, ass_score_total):
               f" {ass_name} assessment score")
         print(f"This assessment is out of {ass_score_total}")
         ass_score = input(f"Enter the trainee's {ass_name} assessment score: ")
-        if ass_score.isdigit() and ass_score <= int(ass_score_total):
+        ass_score = int(ass_score)
+        if ass_score <= int(ass_score_total):
             print("Input successful")
             print(f"The trainee scored {ass_score}/{ass_score_total}")
             return ass_score
@@ -202,6 +203,45 @@ def collect_assessment_scores(ass_name, ass_score_total):
             print(f"Sorry, you entered {ass_score}, that data was invalid.")
             print("You must input a digit value that is greater than"
                   f" or equal too {ass_score_total} ")
+            continue
+
+
+def update_training_register(comp_data_row):
+    """
+    This function is passed the completed trainee data row
+    for insertion into the training register. Prior to insertion,
+    the data is displayed to the user to be checked and the user
+    is asked for a command to continue. The code from the command
+    request is duplicated from the input_check function.
+    """
+    while True:
+        print("\n\nData collection complete, all inputs valid...")
+        print("Displaying data for review....\n")
+        print(f"Trainee Name: {comp_data_row[0]}")
+        print(f"Employee Number: {comp_data_row[1]}")
+        print(f"Assigned Team: {comp_data_row[2]}")
+        print("\n"f"Introduction Module Completed: {comp_data_row[3]}")
+        print(f"Health & Safety Module Completed: {comp_data_row[4]}")
+        print(f"Policy Adherence Module Completed: {comp_data_row[5]}")
+        print(f"Regulatory Module Completed: {comp_data_row[6]}")
+        print(f"Regulatory Assessment Score: {comp_data_row[7]}/33")
+        print("\nWould you like to insert the above data to the register:")
+        print('\n- Enter "Y" for yes')
+        print('- Enter "N" for no\n')
+        update_register = input("Please enter your command: ")
+        if update_register == "Y":
+            print("Skynet activating........ Just kidding ;D.\n")
+            print("Updating Learnpulse Training Register.....")
+            register = SHEET.worksheet("register")
+            register.append_row(comp_data_row)
+            print("Learnpulse Training Register updated successfully...")
+            print("Exit function running...")
+            break
+        elif update_register == "N":
+            print("It's not like I was made for this! Restarting....")
+            main_program_call()
+        else:
+            print("\nThat command was invalid, please try again...")
             continue
 
 
@@ -225,7 +265,7 @@ def main_program_call():
             trainee_data_row.append(reg_mod_date)
             reg_ass_score = collect_assessment_scores("Regulatory", "33")
             trainee_data_row.append(reg_ass_score)
-            print(trainee_data_row)
+            update_training_register(trainee_data_row)
     else:
         search_function_check()
 
