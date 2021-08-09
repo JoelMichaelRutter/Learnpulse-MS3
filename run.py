@@ -51,14 +51,13 @@ def input_function_check():
     The users input is limited to a Y/N for yes or no,
     if the user inputs something other than the above, the
     input loops and prints a command invalid message.
-    If the user enters N, the main_program_call function is called again.
-    If the user enters Y, the return is passed back to the main function
+     - If the user enters N, the main_program_call function is called again.
+     - If the user enters Y, the return is passed back to the main function
     and assessed so that the next function in the input branch of the program
     can be called.
     """
     while True:
-        print("\n")
-        print("Based on your command, you want to input data -")
+        print("\nBased on your command, you want to input data -")
         print("Is this right?")
         print("\nPlease enter one of the following commands to progress:")
         print('\n- Enter "Y" for yes')
@@ -76,7 +75,35 @@ def input_function_check():
 
 
 def search_function_check():
-    print("Search function calling...")
+    """
+    This function asks the user whether or not they would like
+    to proceed with the data search functionality of the program.
+    It allows the user to get out of the functionality if their previous
+    input was accidentally incorrect.
+    The users input is limited to a Y/N for yes or no,
+    if the user inputs something other than the above, the
+    input loops and prints a command invalid message.
+     - If the user enters N, the main_program_call function is called again.
+     - If the user enters Y, the return is passed back to the main function
+    and assessed so that the next function in the search branch of the program
+    can be called.
+    """
+    while True:
+        print("\nBased on your command, you want to search for trainee data -")
+        print("Is this right?")
+        print("\nPlease enter one of the following commands to progress:")
+        print('\n- Enter "Y" for yes')
+        print('- Enter "N" for no\n')
+        branch_search_check = input("Please enter your command: ")
+        print("")
+        if branch_search_check == "Y":
+            return branch_search_check
+        if branch_search_check == "N":
+            print("\nBacking up to the start of the application.\n")
+            return main_program_call()
+        else:
+            print("\nThat command was invalid, please try again...")
+            continue
 
 
 def collect_trainee_personell_data():
@@ -163,9 +190,8 @@ def collect_trainee_training_dates(module):
     CODE ACKNOWLEDGEMENT FOR REG EX -
     https://blog.softhints.com/python-regex-match-date/#regexmatchingdate10102015
     """
-    print('This is where refactored code will go')
     while True:
-        print("Enter the date that the trainee sat their"
+        print("\nEnter the date that the trainee sat their"
               f" {module} Module")
         print("The date must be formatted DD/MM/YYYY\n")
         mod_date = input("Please enter the date: ")
@@ -245,6 +271,16 @@ def update_training_register(comp_data_row):
             continue
 
 
+def search_function():
+    print("LEARNPULSE DATA SEARCH FUNCTION RUNNING....")
+    print("This function will search the training"
+          "register and return a learning report")
+    print("Please note: should you mis-spell the trainee's name "
+          "or if the trainee does not exist, you will receive an error.")
+    trainee_search = input("Please enter the trainee's name")
+    trainee_data_exists = SHEET.row_values(SHEET.find(trainee_search).row)
+
+
 def main_program_call():
     """
     This function is the main function in the program through which
@@ -267,7 +303,9 @@ def main_program_call():
             trainee_data_row.append(reg_ass_score)
             update_training_register(trainee_data_row)
     else:
-        search_function_check()
+        search_check_proceed = search_function_check()
+        if search_check_proceed == "Y":
+            search_function()
 
 
 main_program_call()
