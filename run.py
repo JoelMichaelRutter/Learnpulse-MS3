@@ -44,6 +44,7 @@ def welcome_function():
             continue
 
 
+# Branching function checks are completed here
 def input_function_check():
     """
     This function asks the user whether they want to
@@ -106,6 +107,7 @@ def search_function_check():
             continue
 
 
+# Data input functionality begins here
 def collect_trainee_personell_data():
     """
     This function collects and validates trainee data by asking for
@@ -271,19 +273,21 @@ def update_training_register(comp_data_row):
             continue
 
 
+# Search functionality begins here.
 def search_function():
     """
-    This function runs once the user answers "Y" to the 
+    This function runs once the user answers "Y" to the
     search_function_check question.
     Guidance is provided to user as to what they need to do
     and an input for a trainee name is provided.
-    There is a try/except block.
-    In the try block, the register is parsed for the text
+    There is a try/except block:
+     - In the try block, the register is parsed for the text
     content of the search variable and if a row with that text content
-    exists, try block will execute the row from the spreadsheet will be 
+    exists, try block will execute the row from the spreadsheet will be
     assigned to the data_exists variable and returned to the main function.
-    If the data does not exist or if there is a typo from the user, the except
-    block will execute and the user can either search again or exit the program.
+     - If the data does not exist or if there is a typo from the user, the
+    except block will execute and the user can either search again or exit
+    the program.
     """
     print("LEARNPULSE DATA SEARCH FUNCTION RUNNING....")
     print("This function will search the training"
@@ -294,7 +298,6 @@ def search_function():
                    " to search for: ")
     try:
         data_exists = training.row_values(training.find(search).row)
-        print(data_exists)
         return data_exists
     except gspread.exceptions.GSpreadException:
         while True:
@@ -313,6 +316,24 @@ def search_function():
             else:
                 print("That command was invalid, please try again...")
                 continue
+
+
+def display_searched_data(found_row):
+    """
+    This function receives the list from returned from the
+    search_function where a match has been found in the
+    register google sheet and displays the training data for
+    the trainee the user searched for.
+    """
+    print("\nTrainee located, displaying learning report:\n")
+    print(f"Trainee Name: {found_row[0]}")
+    print(f"Employee Number: {found_row[1]}")
+    print(f"Assigned Team: {found_row[2]}")
+    print("\n"f"Introduction Module Completed: {found_row[3]}")
+    print(f"Health & Safety Module Completed: {found_row[4]}")
+    print(f"Policy Adherence Module Completed: {found_row[5]}")
+    print(f"Regulatory Module Completed: {found_row[6]}")
+    print(f"Regulatory Assessment Score: {found_row[7]}/33")
 
 
 def main_program_call():
@@ -340,7 +361,7 @@ def main_program_call():
         search_check_proceed = search_function_check()
         if search_check_proceed == "Y":
             existing_trainee_data = search_function()
-            display_found_data(existing_trainee_data)
+            display_searched_data(existing_trainee_data)
 
 
 main_program_call()
