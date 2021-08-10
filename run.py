@@ -272,6 +272,19 @@ def update_training_register(comp_data_row):
 
 
 def search_function():
+    """
+    This function runs once the user answers "Y" to the 
+    search_function_check question.
+    Guidance is provided to user as to what they need to do
+    and an input for a trainee name is provided.
+    There is a try/except block.
+    In the try block, the register is parsed for the text
+    content of the search variable and if a row with that text content
+    exists, try block will execute the row from the spreadsheet will be 
+    assigned to the data_exists variable and returned to the main function.
+    If the data does not exist or if there is a typo from the user, the except
+    block will execute and the user can either search again or exit the program.
+    """
     print("LEARNPULSE DATA SEARCH FUNCTION RUNNING....")
     print("This function will search the training"
           "register and return a learning report")
