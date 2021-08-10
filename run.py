@@ -63,9 +63,10 @@ def input_function_check():
         print('\n- Enter "Y" for yes')
         print('- Enter "N" for no\n')
         branch_input_check = input("Please enter your command:\n")
-        if branch_input_check == "Y":
-            return branch_input_check
-        if branch_input_check == "N":
+        input_check_upper = branch_input_check.upper()
+        if input_check_upper == "Y":
+            return input_check_upper
+        if input_check_upper == "N":
             print("\nBacking up to the start of the application.\n")
             return main_program_call()
         else:
@@ -94,8 +95,9 @@ def search_function_check():
         print('\n- Enter "Y" for yes')
         print('- Enter "N" for no\n')
         branch_search_check = input("Please enter your command:\n")
-        if branch_search_check == "Y":
-            return branch_search_check
+        search_check_upper = branch_search_check.upper()
+        if search_check_upper == "Y":
+            return search_check_upper
         if branch_search_check == "N":
             print("\nBacking up to the start of the application.\n")
             return main_program_call()
@@ -120,7 +122,8 @@ def collect_trainee_personell_data():
     - If valid alpha data only is provided, the loop breaks and the input
     from user is appended to the trainee_personell_data_row list.
     CODE REFERENCE - I used code from this stack overflow thread to get
-    the data to validate:
+    the code to validate the user input as only containing letters and
+    spaces:
     https://bit.ly/2VIyBJU
     """
     while True:
