@@ -118,7 +118,8 @@ def collect_trainee_personell_data():
     trainee_personell_data_row = []
     """ - FULL NAME:
     - This input asks the user for their full name.
-    - The block is contained in a while loop to loop if invalid data
+    - The block is contained in a while loop to loop if invalid data is
+    provided
     - If valid alpha data only is provided, the loop breaks and the input
     from user is appended to the trainee_personell_data_row list.
     """
@@ -253,7 +254,7 @@ def update_training_register(comp_data_row):
         print(f"Policy Adherence Module Completed: {comp_data_row[5]}")
         print(f"Regulatory Module Completed: {comp_data_row[6]}")
         print(f"Regulatory Assessment Score: {comp_data_row[7]}/33")
-        print("\nWould you like to insert the above data to the register:")
+        print("\nWould you like to insert the above data into the register:")
         print('\n- Enter "Y" for yes')
         print('- Enter "N" for no\n')
         update_register = input("Please enter your command: ")
@@ -288,10 +289,13 @@ def search_function():
      - If the data does not exist or if there is a typo from the user, the
     except block will execute and the user can either search again or exit
     the program.
+    CODE REFERENCE - I found advice on the code to implement in the search
+    function from this stack overflow thread:
+    https://bit.ly/2VMS4cc
     """
-    print("LEARNPULSE DATA SEARCH FUNCTION RUNNING....")
+    print("LEARNPULSE DATA SEARCH FUNCTION RUNNING....\n")
     print("This function will search the training"
-          "register and return a learning report")
+          " register and return a learning report\n")
     print("Please note: should you mis-spell the trainee's name "
           "or if the trainee does not exist, you will receive an error.")
     search = input("Please enter the name of the trainee you wish"
@@ -334,6 +338,7 @@ def display_searched_data(found_row):
     print(f"Policy Adherence Module Completed: {found_row[5]}")
     print(f"Regulatory Module Completed: {found_row[6]}")
     print(f"Regulatory Assessment Score: {found_row[7]}/33")
+    print("\nThank you for using Learnpulse.")
 
 
 def main_program_call():
