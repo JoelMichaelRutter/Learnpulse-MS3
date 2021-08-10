@@ -267,7 +267,8 @@ def update_training_register(comp_data_row):
         print('\n- Enter "Y" for yes')
         print('- Enter "N" for no\n')
         update_register = input("Please enter your command:\n")
-        if update_register == "Y":
+        update_register_upper = update_register.upper()
+        if update_register_upper == "Y":
             print("Skynet activating........ Just kidding ;D.\n")
             print("Updating Learnpulse Training Register.....")
             register = SHEET.worksheet("register")
@@ -275,7 +276,7 @@ def update_training_register(comp_data_row):
             print("Learnpulse Training Register updated successfully...")
             print("Exit function running...")
             break
-        elif update_register == "N":
+        elif update_register_upper == "N":
             print("It's not like I was made for this! Restarting....")
             main_program_call()
         else:
@@ -321,9 +322,10 @@ def search_function():
             print('\n- Enter "S" to search again')
             print('- Enter "E" to exit the program')
             data_error_cont = input("\nPlease enter your command:\n")
-            if data_error_cont == "S":
+            data_error_cont_upper = data_error_cont.upper()
+            if data_error_cont_upper == "S":
                 search_function()
-            elif data_error_cont == "E":
+            elif data_error_cont_upper == "E":
                 print("Exiting the program, goodbye for now!")
                 break
             else:
