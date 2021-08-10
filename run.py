@@ -31,7 +31,7 @@ def welcome_function():
         print("\nPlease enter one of the following options to progress:")
         print('\n- Enter "input" to add trainee data to the database')
         print('- Enter "search" to search for trainee data')
-        user_branch_choice = input("\nPlease input your command:\n ")
+        user_branch_choice = input("\nPlease input your command:\n")
         if user_branch_choice == "input":
             return user_branch_choice
         elif user_branch_choice == "search":
@@ -61,8 +61,7 @@ def input_function_check():
         print("\nPlease enter one of the following commands to progress:")
         print('\n- Enter "Y" for yes')
         print('- Enter "N" for no\n')
-        branch_input_check = input("Please enter your command:\n ")
-        print("")
+        branch_input_check = input("Please enter your command:\n")
         if branch_input_check == "Y":
             return branch_input_check
         if branch_input_check == "N":
@@ -93,8 +92,7 @@ def search_function_check():
         print("\nPlease enter one of the following commands to progress:")
         print('\n- Enter "Y" for yes')
         print('- Enter "N" for no\n')
-        branch_search_check = input("Please enter your command:\n ")
-        print("")
+        branch_search_check = input("Please enter your command:\n")
         if branch_search_check == "Y":
             return branch_search_check
         if branch_search_check == "N":
@@ -112,21 +110,23 @@ def collect_trainee_personell_data():
     user input whilst at the same time loops the inputs and provides
     guidance if the user inputs invalid data.
     """
-    print("LEARNPULSE DATA INPUT FUNCTION RUNNING....")
+    print("\nLEARNPULSE DATA INPUT FUNCTION RUNNING....")
     trainee_personell_data_row = []
     """ - FULL NAME:
     - This input asks the user for their full name.
     - The block is contained in a while loop to loop if invalid data is
-    provided
+    provided.
     - If valid alpha data only is provided, the loop breaks and the input
     from user is appended to the trainee_personell_data_row list.
     """
     while True:
         print("You must only use alphabetical characters (a-z & A-Z)"
-              " when inputting a trainee's name\n")
-        full_name = input("Enter the trainee's full name:\n ")
+              " when inputting a trainee's name.\n")
+        full_name = input("Enter the trainee's full name:\n")
         n = full_name
-        if (n >= "a" and n <= "z") or (n >= "A" and n <= "Z"):
+        if (any(n.isalpha() for x in n)
+            and any(n.isspace() for x in n)
+                and all(n.isalpha() or n.isspace() for x in n)):
             trainee_personell_data_row.append(n)
             print("Input successfull, thank you...")
             break
