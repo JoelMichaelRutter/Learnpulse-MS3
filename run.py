@@ -23,17 +23,15 @@ def welcome_function():
     prints a welcome message and instructions to the user.
     """
     print("WELCOME TO LEARNPULSE")
-    print("Through this program you can submit and search for \n"
-          "staff training information")
-    print("\n")
+    print("Through this program you can submit and search for"
+          " staff training information\n")
     print("What would you like to do?")
 
     while True:
-        print("\n")
-        print("Please enter one of the following options to progress:")
+        print("\nPlease enter one of the following options to progress:")
         print('\n- Enter "input" to add trainee data to the database')
         print('- Enter "search" to search for trainee data')
-        user_branch_choice = input("\nPlease input your command: ")
+        user_branch_choice = input("\nPlease input your command:\n ")
         if user_branch_choice == "input":
             return user_branch_choice
         elif user_branch_choice == "search":
@@ -63,7 +61,7 @@ def input_function_check():
         print("\nPlease enter one of the following commands to progress:")
         print('\n- Enter "Y" for yes')
         print('- Enter "N" for no\n')
-        branch_input_check = input("Please enter your command: ")
+        branch_input_check = input("Please enter your command:\n ")
         print("")
         if branch_input_check == "Y":
             return branch_input_check
@@ -95,7 +93,7 @@ def search_function_check():
         print("\nPlease enter one of the following commands to progress:")
         print('\n- Enter "Y" for yes')
         print('- Enter "N" for no\n')
-        branch_search_check = input("Please enter your command: ")
+        branch_search_check = input("Please enter your command:\n ")
         print("")
         if branch_search_check == "Y":
             return branch_search_check
@@ -124,7 +122,9 @@ def collect_trainee_personell_data():
     from user is appended to the trainee_personell_data_row list.
     """
     while True:
-        full_name = input("Enter the trainee's full name (alpha chars only): ")
+        print("You must only use alphabetical characters (a-z & A-Z)"
+              " when inputting a trainee's name\n")
+        full_name = input("Enter the trainee's full name:\n ")
         n = full_name
         if (n >= "a" and n <= "z") or (n >= "A" and n <= "Z"):
             trainee_personell_data_row.append(n)
@@ -163,7 +163,8 @@ def collect_trainee_personell_data():
         print("\nTo select the trainee's team, issue a following command:")
         print('\n- Enter "1" to assign the trainee to Team 1')
         print('- Enter "2" to assign the trainee to Team 2')
-        trainee_team = int(input("\nPlease issue a team assignment command: "))
+        trainee_team = int(input("\nPlease issue a team"
+                                 " assignment command:\n"))
         if trainee_team == 1:
             trainee_team = "Team 1"
             trainee_personell_data_row.append(trainee_team)
@@ -197,7 +198,7 @@ def collect_trainee_training_dates(module):
         print("\nEnter the date that the trainee sat their"
               f" {module} Module")
         print("The date must be formatted DD/MM/YYYY\n")
-        mod_date = input("Please enter the date: ")
+        mod_date = input("Please enter the date:\n")
         date = re.findall(r"[\d]{2}/[\d]{2}/[\d]{4}", mod_date)
         if date:
             print("\n"f'{mod_date} is a valid input, thank you...')
@@ -222,7 +223,8 @@ def collect_assessment_scores(ass_name, ass_score_total):
         print("\nPlease input the trainee's"
               f" {ass_name} assessment score")
         print(f"This assessment is out of {ass_score_total}")
-        ass_score = input(f"Enter the trainee's {ass_name} assessment score: ")
+        ass_score = input(f"Enter the trainee's {ass_name}"
+                          " assessment score:\n")
         ass_score = int(ass_score)
         if ass_score <= int(ass_score_total):
             print("Input successful")
@@ -257,7 +259,7 @@ def update_training_register(comp_data_row):
         print("\nWould you like to insert the above data into the register:")
         print('\n- Enter "Y" for yes')
         print('- Enter "N" for no\n')
-        update_register = input("Please enter your command: ")
+        update_register = input("Please enter your command:\n")
         if update_register == "Y":
             print("Skynet activating........ Just kidding ;D.\n")
             print("Updating Learnpulse Training Register.....")
@@ -299,7 +301,7 @@ def search_function():
     print("Please note: should you mis-spell the trainee's name "
           "or if the trainee does not exist, you will receive an error.")
     search = input("Please enter the name of the trainee you wish"
-                   " to search for: ")
+                   " to search for:\n")
     try:
         data_exists = training.row_values(training.find(search).row)
         return data_exists
@@ -311,7 +313,7 @@ def search_function():
             print("Please enter one of the following commands:")
             print('\n- Enter "S" to search again')
             print('- Enter "E" to exit the program')
-            data_error_cont = input("\nPlease enter your command: ")
+            data_error_cont = input("\nPlease enter your command:\n")
             if data_error_cont == "S":
                 search_function()
             elif data_error_cont == "E":
