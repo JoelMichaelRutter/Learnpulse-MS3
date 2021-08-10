@@ -32,10 +32,11 @@ def welcome_function():
         print('\n- Enter "input" to add trainee data to the database')
         print('- Enter "search" to search for trainee data')
         user_branch_choice = input("\nPlease input your command:\n")
-        if user_branch_choice == "input":
-            return user_branch_choice
-        elif user_branch_choice == "search":
-            return user_branch_choice
+        branch_choice_lower = user_branch_choice.lower()
+        if branch_choice_lower == "input":
+            return branch_choice_lower
+        elif branch_choice_lower == "search":
+            return branch_choice_lower
         else:
             print("\nYou entered an invalid command.\n"
                   "Please try again...")
@@ -118,6 +119,9 @@ def collect_trainee_personell_data():
     provided.
     - If valid alpha data only is provided, the loop breaks and the input
     from user is appended to the trainee_personell_data_row list.
+    CODE REFERENCE - I used code from this stack overflow thread to get
+    the data to validate:
+    https://bit.ly/2VIyBJU
     """
     while True:
         print("You must only use alphabetical characters (a-z & A-Z)"
@@ -131,7 +135,7 @@ def collect_trainee_personell_data():
             print("Input successfull, thank you...")
             break
         else:
-            print("Sorry, that data was invalid, please try again...")
+            print("\nSorry, that data was invalid, please try again...")
             continue
 
     """ - EMPLOYEE NUMBER:
