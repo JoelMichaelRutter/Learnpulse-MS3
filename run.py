@@ -277,8 +277,29 @@ def search_function():
           "register and return a learning report")
     print("Please note: should you mis-spell the trainee's name "
           "or if the trainee does not exist, you will receive an error.")
-    trainee_search = input("Please enter the trainee's name")
-    trainee_data_exists = SHEET.row_values(SHEET.find(trainee_search).row)
+    search = input("Please enter the name of the trainee you wish"
+                   " to search for: ")
+    try:
+        data_exists = training.row_values(training.find(search).row)
+        print(data_exists)
+        return data_exists
+    except gspread.exceptions.GSpreadException:
+        while True:
+            print("Sorry, you have searched incorrectly or data for the "
+                  "specified trainee does not yet exist")
+            print("Would you like to search again or exit the program?")
+            print("Please enter one of the following commands:")
+            print('\n- Enter "S" to search again')
+            print('- Enter "E" to exit the program')
+            data_error_cont = input("\nPlease enter your command: ")
+            if data_error_cont == "S":
+                search_function()
+            elif data_error_cont == "E":
+                print("Exiting the program, goodbye for now!")
+                break
+            else:
+                print("That command was invalid, please try again...")
+                continue
 
 
 def main_program_call():
@@ -305,7 +326,8 @@ def main_program_call():
     else:
         search_check_proceed = search_function_check()
         if search_check_proceed == "Y":
-            search_function()
+            existing_trainee_data = search_function()
+            display_found_data(existing_trainee_data)
 
 
 main_program_call()
