@@ -121,20 +121,15 @@ def collect_trainee_personell_data():
     provided.
     - If valid alpha data only is provided, the loop breaks and the input
     from user is appended to the trainee_personell_data_row list.
-    CODE REFERENCE - I used code from this stack overflow thread to get
-    the code to validate the user input as only containing letters and
-    spaces:
+    CODE REFERENCE - I used a reg ex from the answers on this 
+    stack overflow thread:
     https://bit.ly/2VIyBJU
     """
     while True:
         print("You must only use alphabetical characters (a-z & A-Z)"
               " when inputting a trainee's name.\n")
         full_name = input("Enter the trainee's full name:\n")
-        n = full_name
-        if (any(n.isalpha() for x in n)
-            and any(n.isspace() for x in n)
-                and all(n.isalpha() or n.isspace() for x in n)):
-            trainee_personell_data_row.append(n)
+        if re.match("^[a-z A-Z]*$", full_name):
             print("Input successfull, thank you...")
             break
         else:
