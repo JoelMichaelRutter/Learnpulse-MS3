@@ -304,7 +304,7 @@ def search_function():
           " register and return a learning report\n")
     print("Please note: should you mis-spell the trainee's name\n"
           "or if the trainee does not exist, you will receive an error.")
-    search = input("Please enter the name of the trainee you wish"
+    search = input("\nPlease enter the name of the trainee you wish"
                    " to search for:\n")
     try:
         data_exists = training.row_values(training.find(search).row)
