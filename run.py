@@ -265,7 +265,7 @@ def update_training_register(comp_data_row):
         update_register = input("Please enter your command:\n")
         update_register_upper = update_register.upper()
         if update_register_upper == "Y":
-            print("Skynet activating........ Just kidding ;D.\n")
+            print("\nSkynet activating........ Just kidding ;D.\n")
             print("Updating Learnpulse Training Register.....")
             register = SHEET.worksheet("register")
             register.append_row(comp_data_row)
@@ -302,7 +302,7 @@ def search_function():
     print("LEARNPULSE DATA SEARCH FUNCTION RUNNING....\n")
     print("This function will search the training"
           " register and return a learning report\n")
-    print("Please note: should you mis-spell the trainee's name "
+    print("Please note: should you mis-spell the trainee's name\n"
           "or if the trainee does not exist, you will receive an error.")
     search = input("Please enter the name of the trainee you wish"
                    " to search for:\n")
