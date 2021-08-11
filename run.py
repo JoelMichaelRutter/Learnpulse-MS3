@@ -130,6 +130,7 @@ def collect_trainee_personell_data():
               "when inputting a trainee's name.\n")
         full_name = input("Enter the trainee's full name:\n")
         if re.match("^[a-z A-Z]*$", full_name):
+            trainee_personell_data_row.append(full_name)
             print("Input successfull, thank you...")
             break
         else:
@@ -367,7 +368,8 @@ def main_program_call():
             trainee_data_row.append(reg_mod_date)
             reg_ass_score = collect_assessment_scores("Regulatory", "33")
             trainee_data_row.append(reg_ass_score)
-            update_training_register(trainee_data_row)
+            print(trainee_data_row)
+            # update_training_register(trainee_data_row)
     else:
         search_check_proceed = search_function_check()
         if search_check_proceed == "Y":
