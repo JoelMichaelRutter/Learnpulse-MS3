@@ -98,7 +98,7 @@ def search_function_check():
         search_check_upper = branch_search_check.upper()
         if search_check_upper == "Y":
             return search_check_upper
-        if branch_search_check == "N":
+        if search_check_upper == "N":
             print("\nBacking up to the start of the application.\n")
             return main_program_call()
         else:
@@ -121,7 +121,7 @@ def collect_trainee_personell_data():
     provided.
     - If valid alpha data only is provided, the loop breaks and the input
     from user is appended to the trainee_personell_data_row list.
-    CODE REFERENCE - I used a reg ex from the answers on this 
+    CODE REFERENCE - I used a reg ex from the answers on this
     stack overflow thread:
     https://bit.ly/2VIyBJU
     """
