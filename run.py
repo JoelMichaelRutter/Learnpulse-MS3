@@ -143,7 +143,7 @@ def collect_trainee_personell_data():
     appended to trainee_data_row list.
     """
     while True:
-        emp_number = input("\nEnter the trainee's 5 digit employee number: ")
+        emp_number = input("\nEnter the trainee's 5 digit employee number:\n")
         if emp_number.isdigit() and len(emp_number) == 5:
             print("Employee number accepted, thank you...")
             trainee_personell_data_row.append(emp_number)
