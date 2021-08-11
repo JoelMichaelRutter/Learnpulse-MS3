@@ -299,7 +299,7 @@ def search_function():
     function from this stack overflow thread:
     https://bit.ly/2VMS4cc
     """
-    print("LEARNPULSE DATA SEARCH FUNCTION RUNNING....\n")
+    print("\nLEARNPULSE DATA SEARCH FUNCTION RUNNING....\n")
     print("This function will search the training"
           " register and return a learning report\n")
     print("Please note: should you mis-spell the trainee's name\n"
