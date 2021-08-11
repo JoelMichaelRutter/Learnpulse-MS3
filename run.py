@@ -126,8 +126,8 @@ def collect_trainee_personell_data():
     https://bit.ly/2VIyBJU
     """
     while True:
-        print("You must only use alphabetical characters (a-z & A-Z)"
-              " when inputting a trainee's name.\n")
+        print("You must only use alphabetical characters (a-z & A-Z)\n"
+              "when inputting a trainee's name.\n")
         full_name = input("Enter the trainee's full name:\n")
         if re.match("^[a-z A-Z]*$", full_name):
             print("Input successfull, thank you...")
