@@ -368,8 +368,7 @@ def main_program_call():
             trainee_data_row.append(reg_mod_date)
             reg_ass_score = collect_assessment_scores("Regulatory", "33")
             trainee_data_row.append(reg_ass_score)
-            print(trainee_data_row)
-            # update_training_register(trainee_data_row)
+            update_training_register(trainee_data_row)
     else:
         search_check_proceed = search_function_check()
         if search_check_proceed == "Y":
