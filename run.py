@@ -346,6 +346,20 @@ def display_searched_data(found_row):
     print(f"Regulatory Module Completed: {found_row[6]}")
     print(f"Regulatory Assessment Score: {found_row[7]}/33")
     print("\nThank you for using Learnpulse.")
+    while True:
+        print("Would you like to search for another trainee or exit?")
+        print("\nEnter one of the following commands to proceed:")
+        print('\n- Enter "S" to search again')
+        print('- Enter "E" to exit the program')
+        search_again = input("\nPlease enter your command:\n")
+        search_again_upper = search_again.upper()
+        if search_again_upper == "S":
+            return search_again_upper
+        elif search_again_upper == "E":
+            return search_again_upper
+        else:
+            print("That command was invalid, please try again...")
+            continue
 
 
 def main_program_call():
@@ -373,7 +387,15 @@ def main_program_call():
         search_check_proceed = search_function_check()
         if search_check_proceed == "Y":
             existing_trainee_data = search_function()
-            display_searched_data(existing_trainee_data)
+            search_loop = display_searched_data(existing_trainee_data)
+            while True:
+                if search_loop == "S":
+                    existing_trainee_data = search_function()
+                    search_loop = display_searched_data(existing_trainee_data)
+                    continue
+                elif search_loop == "E":
+                    print("Exiting the program, goodbye for now!")
+                    break
 
 
 main_program_call()
