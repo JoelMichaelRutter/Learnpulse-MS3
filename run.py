@@ -311,9 +311,9 @@ def search_function():
         return data_exists
     except gspread.exceptions.GSpreadException:
         while True:
-            print("Sorry, you have searched incorrectly or data for the\n"
+            print("\nSorry, you have searched incorrectly or data for the\n"
                   "specified trainee does not yet exist")
-            print("Would you like to search again or exit the program?")
+            print("\nWould you like to search again or exit the program?")
             print("Please enter one of the following commands:")
             print('\n- Enter "S" to search again')
             print('- Enter "E" to exit the program')
