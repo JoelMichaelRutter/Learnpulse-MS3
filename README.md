@@ -193,7 +193,7 @@ All code acknowledgements have been inserted into the code in the appropriate po
     * Thanks to “Nikko J.” on [this]( https://bit.ly/2VMS4cc) stack overflow thread which helped me implement my search functionality.
 * **SoftHints**
     * Particularly [this]( https://blog.softhints.com/python-regex-match-date/#regexmatchingdate10102015) article about regex for data matching which was supplied by Sheryl from Tutor Support.
-# **Project Acknowledgments**
+# **Project Acknowledgements**
 I would finally like to thank the following people for their help and guidance:
 * Chris Quinn – my mentor for being brilliant as usual.
 * Tutor Support – Big props as always for helping me pull my finger out and fix things myself.
