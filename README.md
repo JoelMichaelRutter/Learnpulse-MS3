@@ -177,5 +177,29 @@ You can create a clone of the repository inside your development environment via
 4. Whilst in the development environment, navigate to the bash terminal. In the bash terminal, enter “git clone”, then paste in the URL copied from the GitHub repository and hit enter. 
 ![github-clone](assets/images/learnpulse-clone-3.png)  
 A clone of all files will now be pulled into the workspace.
+# **Project Reflection**
+I have enjoyed this project the most out of the ones I have done already. I really didn’t struggle to get things off the ground with this one like I did with my JavaScript project. I feel like working with Python has only solidified my understanding of the principles I learned during the JS module. I am excited to see where I can develop my skills further and understand how these back end skills, I have developed will relate to front end skills. 
+# **Further Development Scope**
+Whilst simple in scope, I have developed this application to have lots of scope. Some specific ideas that I had are:
+* **Multiple Worksheets** – In a real-life situation, a busines may wish to keep their staff separated on different worksheets. On that basis, the order of the program could change and branch into more sections utilising the same functions here depending on the team assignment command. Further refactoring would be required to ensure that the code updated the correct worksheet.
+* **Trainee Removal** – The ability to remove a trainee if they left the business would be a welcome addition, the best way to do this would be to branch the program at the welcome function and add in a new branch of code to deal with deleting rows from the worksheet.
+* **Further Insights** – Whilst the scope of the trainee data collected is limited, functionality could be built into the application to delve further into a trainee’s performance and tell the user when refresher training is due.
+# **Project Credits**
+## **Code**
+All code acknowledgements have been inserted into the code in the appropriate points but for clarity, I have included them here as well.
+* Code Institutes Full Stack Software Development Course for providing their course content for me to look back on, specifically when it came to deployment of the project. 
+* **Stack Overflow Community**
+    * Particularly “Misterlen” for his contribution on [this]( https://bit.ly/2VIyBJU) thread which assisted me with the REGEX I needed for my full name input.
+    * Thanks to “Nikko J.” on [this]( https://bit.ly/2VMS4cc) stack overflow thread which helped me implement my search functionality.
+* **SoftHints**
+    * Particularly [this]( https://blog.softhints.com/python-regex-match-date/#regexmatchingdate10102015) article about regex for data matching which was supplied by Sheryl from Tutor Support.
+# **Project Acknowledgments**
+I would finally like to thank the following people for their help and guidance:
+* Chris Quinn – my mentor for being brilliant as usual.
+* Tutor Support – Big props as always for helping me pull my finger out and fix things myself.
+* Charlotte Howard - my partner in crime, for proof reading this document.
+
+
+
 
 
