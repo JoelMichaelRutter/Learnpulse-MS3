@@ -112,7 +112,7 @@ Following the initial display of trainee data, the usual logic of command inside
 To test this application, I completed a rigorous documented run through of the code to eliminate visual and logical errors. I adopted a function by function approach to ensure that the application was well tested. The checklist containing the comments and fixes can be found [here](assets/read-me-files/learnpulse-manual-testing.xlsx). Please note: you will need to download the excel spreadsheet as the content will not display inside GitHub. 
 In addition to my manual testing of the application, I validated the entire script through the [PEP8 python validator](http://pep8online.com/) which returned no errors.  
 ![pep8-validation-proof](assets/images/learnpulse-pep8-validator.png)
-# **Deployment**
+# **Deploying the site**
 ## **Deploying the application to Heroku**
 This project was deployed on Heroku and should you wish to clone the project and deploy it yourself, you will need to follow these steps:  
 1. Go through your Python code and anywhere where you have used the input() method, add a “\n” newline character into the block. This will allow the string you have written within the method to be shown when deployed to the mock terminal.
