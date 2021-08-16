@@ -108,4 +108,7 @@ Following the initial display of trainee data, the usual logic of command inside
 * **[MS Visio]( https://en.wikipedia.org/wiki/Microsoft_Visio)** – For the logic plan of the program.
 * **[MS Word]( https://en.wikipedia.org/wiki/Microsoft_Word)** - To write the initial draft of the README document.
 * **[Microsoft Excel](https://en.wikipedia.org/wiki/Microsoft_Excel)** - To create my manual testing spreadsheet checklist.
-
+# **Application Testing** 
+To test this application, I completed a rigorous documented run through of the code to eliminate visual and logical errors. I adopted a function by function approach to ensure that the application was well tested. The checklist containing the comments and fixes can be found [here](assets/read-me-files/learnpulse-manual-testing.xlsx). Please note: you will need to download the excel spreadsheet as the content will not display inside GitHub. 
+In addition to my manual testing of the application, I validated the entire script through the [PEP8 python validator](http://pep8online.com/) which returned no errors.  
+![pep8-validation-proof](assets/images/learnpulse-pep8-validator.png)
