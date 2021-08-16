@@ -25,18 +25,17 @@ In this section, I will discuss the user experience considerations I implemented
 ## **Strategy**
 ### **Business Goals**
 As this is a business oriented back end system, there are some business goals I considered during the planning and development process.
-•	The system needed to be intuitive and allow ease of learning so that any staff required to record the data would be able to do so easily. 
-•	The system would need to provide some wiggle room for human error whilst also implementing strong validation to ensure consistency of data.
-•	The system would need to have some sort of search functionality to allow auditors or senior stakeholders to review a trainee’s information.
-
+* The system needed to be intuitive and allow ease of learning so that any staff required to record the data would be able to do so easily. 
+* The system would need to provide some wiggle room for human error whilst also implementing strong validation to ensure consistency of data.
+* The system would need to have some sort of search functionality to allow auditors or senior stakeholders to review a trainee’s information.  
 ### **User Stories**
 Below are the user stories that needed to be fulfilled for the project to be successful from the perspective of the user:
 * To navigate the application with ease through intuitive guidance and direction.
 * To understand the purpose of the application.
 * To be able to input trainee data.
 * To be able to search for trainee data.
-* To be able to get out of the application entirely or back out of an application function is a mistake is made.
-### Planning
+* To be able to get out of the application at specific breakpoints or back out of an application function if a mistake is made.
+### **Planning**
 To ensure that I entered the development phase of this project, I decided to create a plan using Microsoft Visio of how the logic of the program would work. I have attached an image of the plan below. Please note: the project has evolved to promote a more positive user experience since the planning phase so some functionality may be different. 
 
 ![learnpulse-program-flow](#)
