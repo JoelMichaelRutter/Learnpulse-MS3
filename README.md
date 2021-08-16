@@ -161,5 +161,11 @@ When Heroku has successfully connected to GitHub repository, you will see a conf
     ![deploy-manual-building](assets/images/learnpulse-deploy-15.png)  
     Once the application is fully built, you can access view the deployed application by clicking the “View” button:  
     ![deployed-view-button](assets/images/learnpulse-deploy-16.png)
+## **Forking The Repository**
+Should you wish to use the site code inside the repository without affecting the original repository, you can make a fork and create a copy of the repository which you can view and amend the code within. To create a fork, follow these steps:  
+1. Login to GitHub and locate the [Learnpulse-MS3](https://github.com/JoelMichaelRutter/Learnpulse-MS3) repository.
+2. In the top right-hand corner of the repository, you will see three buttons just below your profile icon. The rightmost button is called “fork”. Click this button.  
+![fork-learnpulse](assets/images/learnpulse-fork.png)  
+The repository will now be copied to your own GitHub account.
  
 
