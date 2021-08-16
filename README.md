@@ -112,3 +112,54 @@ Following the initial display of trainee data, the usual logic of command inside
 To test this application, I completed a rigorous documented run through of the code to eliminate visual and logical errors. I adopted a function by function approach to ensure that the application was well tested. The checklist containing the comments and fixes can be found [here](assets/read-me-files/learnpulse-manual-testing.xlsx). Please note: you will need to download the excel spreadsheet as the content will not display inside GitHub. 
 In addition to my manual testing of the application, I validated the entire script through the [PEP8 python validator](http://pep8online.com/) which returned no errors.  
 ![pep8-validation-proof](assets/images/learnpulse-pep8-validator.png)
+# **Deployment**
+## **Deploying the application to Heroku**
+This project was deployed on Heroku and should you wish to clone the project and deploy it yourself, you will need to follow these steps:  
+1. Go through your Python code and anywhere where you have used the input() method, add a “\n” newline character into the block. This will allow the string you have written within the method to be shown when deployed to the mock terminal.
+2. Now, you need to add the dependencies required for the project into the requirements.txt file. Without adding these dependencies in, the project will not function as intended, so this is an extremely important step. The environment I used to complete the project was pre-prepared with most of the code to deploy the project but I manually installed some separate dependencies during the development process which are listed below.
+    * Google Auth
+    * Gspread  
+
+    To update the requirements.txt file with the relevant dependencies, you must enter the following command into the terminal “pip3 freeze > requirements.txt”.  
+    ![freeze-command](assets/images/learnpulse-deploy-1.png)  
+    You will now see in the requirements.txt file that the dependencies for the project have been added. Heroku will search for this file and install the dependencies in the deployed version of the project which will allow it to work.  
+    ![requirements.txt-screenshot](assets/images/learnpulse-deploy-2.png)  
+    Once the requirement.txt file has been updated, commit and push the code to GitHub.  
+3. Go to [Heroku](https://id.heroku.com/login) and sign up for a new account by filling out the registration form, verifying your email address and setting a password. Once that is complete, you can click the “set password and log in” button.
+4. At this point, you will be presented with your Heroku dashboard which should look similar to the image below depending on whether you have used Heroku before. If you have not used Heroku previously, there will be no applications on your dashboard. To begin the deployment process, find the “Create new app” button and click it.
+5. You will now need to enter a unique name for your app, Heroku will tell you if it is available or not.  
+![heroku-naming](assets/images/learnpulse-deploy-3.png)  
+6. You will also need to amend the location to the option that is relevant for you, as I live in Europe, I have selected Europe.
+7. On the next page, you will have a toolbar with several options on it as circled in the image below. The tabs required to deploy the project are the “Deploy” tab and the “Settings” tab.
+![settings-tab-heroku](assets/images/learnpulse-deploy-4.png)
+8. To begin deploying the project, you will first need to apply some specific settings. You can do this by clicking the “settings” tab and then following the below steps:
+    * The first section that needs attention in the settings tab is the “Config Vars” section:  
+    ![settings-one](assets/images/learnpulse-deploy-5.png)  
+    As the project requires the use of an API and in turn the creds.json file containing sensitive information which is itself protected inside the gitignore folder of the workspace, we will need to create a Config Var to allow the deployed project to utilise the credentials in the json file which will enable the application’s functionality. To create the relevant config var, click the “Reveal Config Vars” button:  
+    ![config-vars](assets/images/learnpulse-deploy-6.png)  
+    In the KEY field, enter “CREDS” in all caps, and in the VALUE field paste the entirety of the text content from the creds.json file from the workspace so that it looks something similar to the below screenshot:  
+    ![config-vaars-completed](assets/images/learnpulse-deploy-7.png)  
+    Once filled out, click “Add”.  
+    * The next step in the “Settings” tab is to scroll down until you can see the build packs section. Adding buildpacks will allow the project to access additional dependencies to the ones in the requirement.txt file. When you see it, click “Add Buildpack”:  
+    ![buildpacks-1](assets/images/learnpulse-deploy-8.png)  
+    * From the options, select “python” and then click “save changes”. Then, click “add buildpack” again and select “node.js” and again click “save changes”.
+    ![buildpacks-2](assets/images/learnpulse-deploy-9.png)  
+    * You must ensure that the build packs you have selected are in the following order with Python on top and Node.js on the bottom, if you find that your build packs are in the wrong order, click and hold the hamburger to the left of the build pack log and drag them into the correct order:  
+    ![buildpacks-3](assets/images/learnpulse-deploy-10.png)  
+    Once this is complete, you can scroll back up to the tool bar and move on to the “Deploy” tab.
+9. In this section, you must select a deployment method. When I deployed the project, I connected Heroku to the GitHub repository containing the code. If you would like to deploy in the same manner, select the GitHub button and enter your GitHub repository name exactly as it is formatted on GitHub and then click “Search”:  
+![deploy-github](assets/images/learnpulse-deploy-11.png)  
+10. Just beneath the field you just edited, provided you have entered all the information correctly, a small line will appear with a “Connect” button next to it. Click the “Connect” button:  
+![deploy-github](assets/images/learnpulse-deploy-12.png)  
+When Heroku has successfully connected to GitHub repository, you will see a confirmation message like the below image:  
+![deploy-github](assets/images/learnpulse-deploy-13.png)  
+11. Scroll down until you see the deployment section. There are two deployment options available to you which are explained below. 
+    * Automatic deploys – This method of deployment will cause Heroku to redeploy the application whenever new code is pushed to GitHub.  
+    * Manual Deploys – This method of deployment will build the application based on the current state of the code branch you select. For the purposes of the document, I used the manual deployment method by clicking “Deploy Branch”.  
+    ![deploy-options](assets/images/learnpulse-deploy-14.png)  
+    This will show the application being built in a small window where you can see the dependencies and packages necessary for the application to run being installed.  
+    ![deploy-manual-building](assets/images/learnpulse-deploy-15.png)  
+    Once the application is fully built, you can access view the deployed application by clicking the “View” button:  
+    ![deployed-view-button](assets/images/learnpulse-deploy-16.png)
+ 
+
