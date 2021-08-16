@@ -3,7 +3,13 @@
 ### General Purpose and Introduction
 Learnpulse is a command line interface data entry and search application used specifically for recording and displaying core learning and development data for new inductees within a business. The system itself makes use of two APIs to store the trainee data:
 1.	Google Drive
-2.	Gspread
+2.	Gspread  
+
+The database for the training data can be accessed in this public [google sheet](https://docs.google.com/spreadsheets/d/1OqyMp__VLAu4Ta8SEj9qbh075lH2xRMwofnBVDmNNX4/edit?usp=sharing). In a real world scenario, this would be far more secure and utilise some sort of secure local database or drive. For the purposes of assessing this project's functionality, there are already some lines of data within the spreadsheet which you can search for if you use the following trainee names inside the search function:  
+* Joel Rutter
+* Joe Bloggs
+* Leon Vynehall
+* Penny Farthing  
 ## Table of Contents
 * ### [Deployed Site](#Deployed-Website)
 * ### [Demo](#Site-Demonstration)
