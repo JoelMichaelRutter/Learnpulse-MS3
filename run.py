@@ -309,7 +309,7 @@ def search_function():
     try:
         data_exists = training.row_values(training.find(search).row)
         return data_exists
-    except AttributeError:
+    except Exception:
         while True:
             print("\nSorry, you have searched incorrectly or data for the\n"
                   "specified trainee does not yet exist")
@@ -323,7 +323,7 @@ def search_function():
                 return data_error_cont_upper
             elif data_error_cont_upper == "E":
                 print("Thank you for using Learnpulse, goodbye for now!")
-                raise SystemExit
+                return data_error_cont_upper
             else:
                 print("That command was invalid, please try again...")
                 continue
@@ -386,16 +386,20 @@ def main_program_call():
     else:
         search_check_proceed = search_function_check()
         if search_check_proceed == "Y":
-            existing_trainee_data = search_function()
-            search_loop = display_searched_data(existing_trainee_data)
             while True:
-                if search_loop == "S":
-                    existing_trainee_data = search_function()
-                    search_loop = display_searched_data(existing_trainee_data)
+                existing_trainee_data = search_function()
+                if existing_trainee_data == "S":
                     continue
-                elif search_loop == "E":
+                if existing_trainee_data == "E":
                     print("Exiting the program, goodbye for now!")
-                    break
+                    raise SystemExit
+                else:
+                    search_loop = display_searched_data(existing_trainee_data)
+                    if search_loop == "S":
+                        continue
+                    else:
+                        print("Exiting the program, goodbye for now!")
+                        raise SystemExit
 
 
 main_program_call()
