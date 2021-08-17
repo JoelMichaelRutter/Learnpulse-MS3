@@ -389,7 +389,7 @@ def main_program_call():
             existing_trainee_data = search_function()
             search_loop = display_searched_data(existing_trainee_data)
             while True:
-                if search_loop == "S":
+                if search_loop or existing_trainee_data == "S":
                     existing_trainee_data = search_function()
                     search_loop = display_searched_data(existing_trainee_data)
                     continue
