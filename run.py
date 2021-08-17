@@ -345,7 +345,6 @@ def display_searched_data(found_row):
     print(f"Policy Adherence Module Completed: {found_row[5]}")
     print(f"Regulatory Module Completed: {found_row[6]}")
     print(f"Regulatory Assessment Score: {found_row[7]}/33")
-    print("\nThank you for using Learnpulse.")
     while True:
         print("Would you like to search for another trainee or exit?")
         print("\nEnter one of the following commands to proceed:")
@@ -391,14 +390,14 @@ def main_program_call():
                 if existing_trainee_data == "S":
                     continue
                 if existing_trainee_data == "E":
-                    print("Exiting the program, goodbye for now!")
+                    print("Thanks for using Learnpulse, goodbye for now!")
                     raise SystemExit
                 else:
                     search_loop = display_searched_data(existing_trainee_data)
                     if search_loop == "S":
                         continue
                     else:
-                        print("Exiting the program, goodbye for now!")
+                        print("Thanks for using Learnpulse, goodbye for now!")
                         raise SystemExit
 
 
