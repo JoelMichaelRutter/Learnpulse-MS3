@@ -320,10 +320,9 @@ def search_function():
             data_error_cont = input("\nPlease enter your command:\n")
             data_error_cont_upper = data_error_cont.upper()
             if data_error_cont_upper == "S":
-                search_function()
+                return data_error_cont_upper
             elif data_error_cont_upper == "E":
-                print("Exiting the program, goodbye for now!")
-                break
+                return data_error_cont_upper
             else:
                 print("That command was invalid, please try again...")
                 continue
