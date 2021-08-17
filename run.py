@@ -393,7 +393,7 @@ def main_program_call():
                     existing_trainee_data = search_function()
                     search_loop = display_searched_data(existing_trainee_data)
                     continue
-                elif search_loop == "E":
+                else:
                     print("Exiting the program, goodbye for now!")
                     break
 
