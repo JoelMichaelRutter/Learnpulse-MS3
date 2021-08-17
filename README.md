@@ -175,7 +175,7 @@ Should you wish to use the site code inside the repository without affecting the
 2. In the top right-hand corner of the repository, you will see three buttons just below your profile icon. The rightmost button is called “fork”. Click this button.  
 ![fork-learnpulse](assets/images/learnpulse-fork.png)  
 The repository will now be copied to your own GitHub account.
-## **Cloning The Repository
+## **Cloning The Repository**
 You can create a clone of the repository inside your development environment via https. To do this, follow these steps:  
 1. Login to GitHub and locate the locate the [Learnpulse-MS3](https://github.com/JoelMichaelRutter/Learnpulse-MS3) repository.
 2. Whilst in the repository, you will see the various files contained within. Above this list, you will see a button labelled “code”. The button will have a small download icon beside it.  
