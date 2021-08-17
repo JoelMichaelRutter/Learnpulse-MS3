@@ -10,6 +10,8 @@ The database for the training data can be accessed in this public [google sheet]
 * Joe Bloggs
 * Leon Vynehall
 * Penny Farthing  
+
+Alternativley, you can add yourself or a made up person using the input function and then search for the data that you added.
 ## Table of Contents
 * ### [Deployed Site](#Deployed-Website)
 * ### [Demo](#Site-Demonstration)
@@ -42,7 +44,7 @@ Below are the user stories that needed to be fulfilled for the project to be suc
 * To be able to search for trainee data.
 * To be able to get out of the application at specific breakpoints or back out of an application function if a mistake is made.
 ### **Planning**
-To ensure that I entered the development phase of this project, I decided to create a plan using Microsoft Visio of how the logic of the program would work. I have attached an image of the plan below. Please note: the project has evolved to promote a more positive user experience since the planning phase so some functionality may be different.  
+To ensure that I entered the development phase of this project on strong footing, I decided to create a plan using Microsoft Visio of how the logic of the program would work. I have attached an image of the plan below. Please note: the project has evolved to promote a more positive user experience since the planning phase so some functionality may be different.  
 ![learnpulse-program-flow](assets/images/learnpulse-program-plan.png)  
 # **Functional Features**
 ## General
