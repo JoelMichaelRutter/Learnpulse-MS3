@@ -322,7 +322,6 @@ def search_function():
             if data_error_cont_upper == "S":
                 return data_error_cont_upper
             elif data_error_cont_upper == "E":
-                print("Thank you for using Learnpulse, goodbye for now!")
                 return data_error_cont_upper
             else:
                 print("That command was invalid, please try again...")
